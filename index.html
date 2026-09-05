@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Jimikkiii ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+ font-family:'Montserrat',sans-serif;color:#4d2930;
+ background:#f8e8ea;
+}
+.page{
+ position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+ text-align:center;padding:22px;overflow:hidden;
+ background:radial-gradient(circle at 50% 15%,#fffdf8 0,#f9e8eb 42%,#f1d7dd 100%);
+}
+.page.active{display:flex;animation:pageIn .65s ease both}
+@keyframes pageIn{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
+.decor{position:absolute;inset:0;pointer-events:none}
+.decor:before,.decor:after{content:"";position:absolute;border-radius:50%;filter:blur(3px)}
+.decor:before{width:250px;height:250px;background:#f6c9d2;left:-100px;top:-80px;opacity:.45}
+.decor:after{width:300px;height:300px;background:#f0d9b0;right:-130px;bottom:-120px;opacity:.38}
+.card{position:relative;z-index:2;width:min(520px,92vw)}
+.brand{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#9c6570;margin-bottom:15px}
+h1{
+ font-family:'Cormorant Garamond',serif;font-size:clamp(43px,12vw,78px);
+ line-height:.95;margin:0;color:#6d303f;font-weight:600;
+}
+.script{font-family:'Great Vibes',cursive;font-size:clamp(45px,12vw,75px);color:#a23d59}
+p{line-height:1.7}
+button{
+ margin-top:25px;border:0;border-radius:999px;padding:14px 29px;
+ background:linear-gradient(135deg,#b44e68,#7e2943);color:#fff;
+ font:600 13px Montserrat;letter-spacing:.5px;cursor:pointer;
+ box-shadow:0 10px 25px rgba(126,41,67,.22);transition:.25s;
+}
+button:hover{transform:translateY(-2px) scale(1.02)}
+.small-note{font-size:11px;color:#9a7078;margin-top:12px}
+.heart{color:#b54a67}
+.lamp{font-size:34px;margin:5px}
+.flower{font-size:48px;filter:drop-shadow(0 5px 10px #d9a25c55)}
+.dance{
+ position:absolute;z-index:1;right:3%;bottom:2%;width:min(165px,28vw);
+ filter:drop-shadow(0 12px 20px rgba(120,40,50,.2));
+}
+.dance img{width:100%;display:block}
+@media(max-width:600px){.dance{width:105px;right:1%;bottom:3%}}
+.ribbon{
+ display:inline-block;margin:18px auto;padding:8px 18px;border-radius:30px;
+ background:#fff8ed;border:1px solid #dfbf87;color:#8a5c39;font-size:11px;letter-spacing:2px
+}
+
+/* Balloon screen */
+.balloons{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:30px auto 15px;max-width:500px}
+.balloon{
+ width:70px;height:92px;border-radius:50% 50% 47% 47%;position:relative;cursor:pointer;
+ box-shadow:0 12px 20px #8a445522;animation:bob 2.2s ease-in-out infinite;
+}
+.balloon:after{content:"";position:absolute;left:50%;top:88px;width:1px;height:42px;background:#9d7378}
+.balloon:nth-child(1){background:#eaa6b6}.balloon:nth-child(2){background:#b5d9d0;animation-delay:.2s}
+.balloon:nth-child(3){background:#f1cb85;animation-delay:.4s}.balloon:nth-child(4){background:#cbb0d9;animation-delay:.6s}
+.balloon.popped{animation:pop .35s forwards}
+@keyframes bob{50%{transform:translateY(-10px)}}@keyframes pop{to{transform:scale(1.5);opacity:0}}
+.reason{
+ min-height:64px;padding:15px 20px;border-radius:16px;background:#fffaf8;
+ border:1px solid #ead0d2;box-shadow:0 10px 25px #8b4c5812;
+ font-family:'Cormorant Garamond';font-size:21px;color:#703c47
+}
+
+/* Balloon photo reveal */
+.photo-reveal{
+  width:min(300px,78vw);
+  height:min(360px,48vh);
+  margin:22px auto 0;
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+  border:5px solid #f7ead7;
+  box-shadow:0 16px 40px rgba(99,43,55,.22);
+  opacity:0;
+  transform:scale(.92) translateY(12px);
+  transition:opacity .45s ease,transform .45s ease;
+  pointer-events:none;
+}
+.photo-reveal.show{
+  opacity:1;
+  transform:scale(1) translateY(0);
+}
+.photo-reveal img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.photo-caption{
+  margin-top:10px;
+  font:600 11px Montserrat,sans-serif;
+  letter-spacing:1.5px;
+  color:#9b6871;
+  text-transform:uppercase;
+}
+
+/* Cake */
+.cake{font-size:105px;animation:cake 1.7s ease-in-out infinite}
+@keyframes cake{50%{transform:translateY(-6px) scale(1.03)}}
+.flame{display:inline-block;animation:flame .45s infinite alternate}
+@keyframes flame{to{transform:scale(1.15);filter:brightness(1.3)}}
+
+/* Rose */
+.bouquet{font-size:100px;animation:bouquet 1.4s ease-in-out infinite}
+@keyframes bouquet{50%{transform:rotate(2deg) scale(1.03)}}
+
+/* Envelope */
+.envelope{
+ width:min(390px,84vw);height:230px;margin:25px auto;position:relative;cursor:pointer;
+ background:#f0d39d;border-radius:8px;box-shadow:0 18px 40px #70402a25;overflow:hidden;
+}
+.envelope:before,.envelope:after{content:"";position:absolute;inset:0}
+.envelope:before{background:linear-gradient(32deg,transparent 49.5%,#c79d68 50%,transparent 50.5%),linear-gradient(-32deg,transparent 49.5%,#c79d68 50%,transparent 50.5%)}
+.seal{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:57px;height:57px;border-radius:50%;
+ display:grid;place-items:center;background:#a9445d;color:white;font-family:Georgia;font-size:22px;border:4px solid #e7bd79;
+ box-shadow:0 5px 15px #7d304333
+}
+.letter{
+ width:min(550px,92vw);max-height:82vh;overflow:auto;text-align:left;padding:30px;
+ background:#fffdf6;border:1px solid #ead9b9;box-shadow:0 18px 50px #74412a22;
+ color:#5a4544;line-height:1.8;transform:rotate(-.4deg)
+}
+.letter h2{font-family:'Great Vibes';font-size:45px;color:#9a4058;margin:0 0 10px}
+.sign{text-align:right;color:#a23d59;font-family:'Great Vibes';font-size:29px;margin-top:20px}
+.final h1{font-size:clamp(55px,14vw,100px)}
+.sparkles{font-size:35px;margin-top:20px;animation:spark .9s infinite alternate}
+@keyframes spark{to{transform:scale(1.08)}}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:20}
+.piece{position:absolute;top:-20px;width:7px;height:12px;animation:drop 3s linear forwards}
+@keyframes drop{to{top:110%;transform:rotate(720deg)}}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     EASY CUSTOMIZATION
+     1) Change GF_NAME / YOUR_NAME / AGE
+     2) Replace dance-placeholder.gif with your own GIF
+     3) Optional: change MUSIC_FILE to your own mp3
+========================================================= -->
+<script>
+const GF_NAME = "Jimikkiii";
+const YOUR_NAME = "Dhavamani";
+const AGE = "25";
+
+const DANCE_GIF = "dance-placeholder.gif";
+/* Example after you upload her GIF:
+   const DANCE_GIF = "jimikkiii-dance.gif";
+*/
+
+/* ================= OUR PHOTO SETTINGS =================
+   Put these photos beside index.html in GitHub.
+   Example:
+   photo1.jpg
+   photo2.jpg
+   photo3.jpg
+   photo4.jpg
+
+   Balloon 1 -> photo1
+   Balloon 2 -> photo2
+   Balloon 3 -> photo3
+   Balloon 4 -> photo4
+
+   You can change the filenames below to ANY image filename.
+========================================================= */
+const MEMORY_PHOTOS = [
+  { file:"photo1.jpg", caption:"Our first little memory ❤️" },
+  { file:"photo2.jpg", caption:"A moment I'll always keep 💕" },
+  { file:"photo3.jpg", caption:"You + Me = my favourite story ✨" },
+  { file:"photo4.jpg", caption:"One more beautiful memory 🥰" }
+];
+
+const MUSIC_FILE = "";
+/* Example:
+   const MUSIC_FILE = "birthday-song.mp3";
+*/
+
+const reasons = [
+ "Your smile has its own kind of magic. ❤️",
+ "Your Bharatanatyam dedication inspires me. 🪷",
+ "Your expressions can tell a thousand stories. ✨",
+ "Every little moment with you feels special. 💕"
+];
+</script>
+
+<section class="page active" id="p1">
+ <div class="decor"></div>
+ <div class="card">
+  <div class="flower">🪷</div><div class="brand">A little surprise from Dhavamani</div>
+  <h1>For <span class="script">Jimikkiii</span></h1>
+  <p>Someone very special deserves a very special birthday.</p>
+  <div class="ribbon">NATYAM • LOVE • MEMORIES</div><br>
+  <button onclick="go(2);playMusic()">Open your surprise ✨</button>
+  <div class="small-note">Turn your sound on 🎵</div>
+ </div>
+</section>
+
+<section class="page" id="p2">
+ <div class="decor"></div>
+ <div class="dance"><img id="danceImg" src="dance-placeholder.gif" alt="Dance GIF placeholder"></div>
+ <div class="card">
+  <div class="lamp">🪔</div><div class="brand">Today is all about you</div>
+  <h1>Happy Birthday</h1>
+  <div class="script" id="name2"></div>
+  <p>To the girl whose every step becomes an expression of art. 🪷</p>
+  <button onclick="go(3)">I have something to tell you 💕</button>
+ </div>
+</section>
+
+<section class="page" id="p3">
+ <div class="decor"></div>
+ <div class="card">
+  <div class="brand">A little game</div>
+  <h1>Pop the balloons 🎈</h1>
+  <p>Each balloon hides one reason I adore you.</p>
+  <div class="balloons" id="balloons"></div>
+  <div class="reason" id="reason">Tap a balloon...</div>
+
+  <!-- The photo changes every time a new balloon is popped -->
+  <div class="photo-reveal" id="photoReveal">
+    <img id="memoryPhoto" src="" alt="Our memory">
+  </div>
+  <div class="photo-caption" id="photoCaption"></div>
+
+  <button onclick="go(4)">Continue ❤️</button>
+ </div>
+</section>
+
+<section class="page" id="p4">
+ <div class="decor"></div>
+ <div class="card">
+  <div class="brand">Make a birthday wish</div>
+  <div class="cake">🎂<span class="flame">🕯️</span></div>
+  <h1>Blow the candle</h1>
+  <p>Close your eyes, make a wish, and smile. ✨</p>
+  <button onclick="go(5)">Wish made ✨</button>
+ </div>
+</section>
+
+<section class="page" id="p5">
+ <div class="decor"></div>
+ <div class="card">
+  <div class="brand">For the dancer I admire</div>
+  <div class="bouquet">💐</div>
+  <h1>A rose for you</h1>
+  <p>For every graceful step, every expression, and every dream you chase.</p>
+  <button onclick="go(6)">There's one last thing 💌</button>
+ </div>
+</section>
+
+<section class="page" id="p6">
+ <div class="decor"></div>
+ <div class="card">
+  <div class="brand">A message from my heart</div>
+  <h1>For <span class="script" id="name6"></span></h1>
+  <div class="envelope" onclick="go(7)">
+   <div class="seal">D</div>
+  </div>
+  <p>Tap the letter to open it 💌</p>
+ </div>
+</section>
+
+<section class="page" id="p7">
+ <div class="decor"></div>
+ <div class="letter">
+  <h2>Dear <span id="name7"></span>,</h2>
+  <p><b>Happy Birthday, my Jimikkiii ❤️</b></p>
+  <p>
+   I wanted to give you something that feels a little different,
+   something you can open and smile at whenever you want.
+  </p>
+  <p>
+   Watching your passion for Bharatanatyam makes me admire you even more.
+   The grace in your movements, the expressions in your eyes,
+   and the dedication behind every step are truly beautiful.
+  </p>
+  <p>
+   I hope this new year of your life brings you countless reasons to smile,
+   beautiful stages to perform on, and dreams that slowly become reality.
+  </p>
+  <p>
+   And through all those moments, I hope I get to stand beside you,
+   cheer for you, and make you smile too. ❤️
+  </p>
+  <div class="sign">With love,<br><span id="your7"></span> ❤️</div>
+  <div style="text-align:center"><button onclick="go(8);celebrate()">One final surprise ✨</button></div>
+ </div>
+</section>
+
+<section class="page final" id="p8">
+ <div class="decor"></div>
+ <div class="card">
+  <div class="sparkles">✨ 🪷 ✨</div>
+  <div class="brand">This little world is made for you</div>
+  <h1>Happy Birthday</h1>
+  <div class="script" id="name8"></div>
+  <p>Keep dancing. Keep smiling. Keep being the beautiful you. ❤️</p>
+  <div class="sparkles">🪔 💕 🎂 💕 🪔</div>
+ </div>
+</section>
+
+<div id="confetti"></div>
+<audio id="music" loop></audio>
+
+<script>
+document.getElementById("name2").textContent=GF_NAME;
+document.getElementById("name6").textContent=GF_NAME;
+document.getElementById("name7").textContent=GF_NAME;
+document.getElementById("name8").textContent=GF_NAME;
+document.getElementById("your7").textContent=YOUR_NAME;
+
+function go(n){
+ document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+ document.getElementById("p"+n).classList.add("active");
+ if(n===3) buildBalloons();
+}
+function buildBalloons(){
+ const box=document.getElementById("balloons");
+ if(box.children.length) return;
+
+ reasons.forEach((r,i)=>{
+  const b=document.createElement("div");
+  b.className="balloon";
+  b.title="Pop me!";
+
+  b.onclick=()=>{
+   if(b.classList.contains("popped")) return;
+
+   b.classList.add("popped");
+
+   // Show the matching memory photo.
+   showMemoryPhoto(i);
+
+   // Update the reason text.
+   document.getElementById("reason").textContent=r;
+
+   setTimeout(()=>{
+     b.style.visibility="hidden";
+   },350);
+  };
+
+  box.appendChild(b);
+ });
+}
+
+function showMemoryPhoto(index){
+ const item=MEMORY_PHOTOS[index];
+ if(!item) return;
+
+ const photoBox=document.getElementById("photoReveal");
+ const photo=document.getElementById("memoryPhoto");
+ const caption=document.getElementById("photoCaption");
+
+ // Fade the old photo out first.
+ photoBox.classList.remove("show");
+
+ setTimeout(()=>{
+   // Change the image only after the old one has disappeared.
+   photo.src=item.file;
+   photo.alt=item.caption;
+   caption.textContent=item.caption;
+
+   // Fade the new photo in.
+   photoBox.classList.add("show");
+ },220);
+}
+function playMusic(){
+ if(!MUSIC_FILE) return;
+ const a=document.getElementById("music");
+ a.src=MUSIC_FILE;
+ a.play().catch(()=>{});
+}
+function celebrate(){
+ const box=document.getElementById("confetti");
+ box.innerHTML="";
+ for(let i=0;i<100;i++){
+  const e=document.createElement("i");e.className="piece";
+  e.style.left=Math.random()*100+"%";
+  e.style.background=["#b44e68","#d8a84e","#7b9e9a","#a77bb7","#f0c98b"][Math.floor(Math.random()*5)];
+  e.style.animationDelay=Math.random()*1.3+"s";
+  box.appendChild(e);
+ }
+}
+</script>
+</body>
+</html>
